@@ -1,6 +1,7 @@
 from typing import Iterable, TypeVar
 from .board import Board
 from .player import Player
+from .ship import Ship
 
 T = TypeVar('T')
 # Class for game play
@@ -9,6 +10,7 @@ class BattleshipGame(object):
         self.blank_char = blank_char
         self.board = Board(dimensions, dimensions, blank_char)
         self.players = [Player() for _ in range(2)]
+        self.player_ships = [Ship() for _ in range()]
         self.curr_player_turn = 0
 
     def play(self) -> None:

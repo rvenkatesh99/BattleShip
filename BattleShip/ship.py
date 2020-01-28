@@ -5,9 +5,10 @@ class Ship(object):
         self.length = None # set by parameters?
         self.health = length
 
-    def ship_hit(self) -> int:
+    def if_ship_hit(self) -> int:
 
-    def ship_sunk(self) -> bool:
+
+    def check_ship_sunk(self) -> bool:
         if self.health == 0:
             return True
         else:
