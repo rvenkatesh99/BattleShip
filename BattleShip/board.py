@@ -41,5 +41,5 @@ class Board(object):
     def __getitem__(self, index: int) -> List[str]:
         return self.contents[index]
 
-    # num_rows
-    # num_cols
+    def place_ship(self, orientation: list) -> list:
+        pass
