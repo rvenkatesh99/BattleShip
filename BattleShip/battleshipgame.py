@@ -43,3 +43,6 @@ class BattleshipGame(object):
 
     def get_cur_player(self) -> "Player":
         return self.players[self._curr_player_turn]
+
+    def get_player_ships(self) -> "Ship":
+        ship1 = Ship()

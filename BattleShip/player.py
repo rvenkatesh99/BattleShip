@@ -7,3 +7,7 @@ class Player(object):
 
     def __str__(self) -> str:
         return self.name
+
+    def player_name(self) -> str:
+        inputted_name_p1 = input("Player 1 please enter your name:")
+        inputted_name_p2 = input("Player 2 please enter your name:")

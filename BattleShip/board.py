@@ -29,8 +29,8 @@ class Board(object):
         9 * * * * * * * * * *
         :return:
         """
-        sep = '  ' * max([len(str(self.num_rows))], [len(str(self.num_cols))]) + '\n'
-        rep = sep + '  '.join(str(i) for i in range(self.num_cols))
+        sep = ' ' * max([len(str(self.num_rows))], [len(str(self.num_cols))]) + '\n'
+        rep = sep + sep.join(str(i) for i in range(self.num_cols))
         for row_index, row in enumerate(self):
             rep += str(row_index) + sep + sep.join(row) + '\n'
         return rep
@@ -43,14 +43,3 @@ class Board(object):
 
     # num_rows
     # num_cols
-    def is_full(self) -> bool:
-        return all(
-            (space != self.blank_char for row in self for space in row)
-        )
-        # for row in self:
-        #     for space in row:
-        #         space != self.blank_char
-
-        # Function to place ship
-
-        # Function to update board in battle
