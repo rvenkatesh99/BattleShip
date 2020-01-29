@@ -1,5 +1,5 @@
 import sys
-from BattleShip.battleshipgame import BattleshipGame
+from BattleShip.game import Game
 
 if __name__ == '__main__':
     board_dim = 5
@@ -8,5 +8,5 @@ if __name__ == '__main__':
     if len(sys.argv) >= 2:
         board_dim = int(sys.argv[1])
 
-    game = BattleshipGame(board_dim)
+    game = Game(board_dim)
     game.play()

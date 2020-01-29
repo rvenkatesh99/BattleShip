@@ -5,22 +5,23 @@ from .ship import Ship
 
 T = TypeVar('T')
 # Class for game play
-class BattleshipGame(object):
+class Game(object):
     def __init__(self, dimensions: int, blank_char: str = '*') -> None:
         self.blank_char = blank_char
         self.board = Board(dimensions, dimensions, blank_char)
         self.players = [Player() for _ in range(2)]
-        self.curr_player_turn = 0
-
+        self._curr_player_turn = 0
+        self.get_player_ships = None
     # Function to read the configuration file
     def read_config_file(self) -> None:
         config_file = None
         with open(config_file) as file_in:
             lines = []
             for line in file_in:
+                line.split()
                 lines.append(line)
-        self.board = line[0]
-        return lines
+        self.board = line[0][1]
+        return self.board
 
     def play(self) -> None:
         while not self.is_game_over():
@@ -45,10 +46,10 @@ class BattleshipGame(object):
 
     def change_turn(self) -> None:
         self._curr_player_turn = (self._curr_player_turn + 1) % 2
-        # if self.curr_player_turn == 0:
-            # self.curr_Player_turn = 1
+        # if self._curr_player_turn == 0:
+            # self._curr_player_turn = 1
         # else:
-            # self._cur_player_turn = 1
+            # self._curr_player_turn = 1
 
     def get_cur_player(self) -> "Player":
         return self.players[self._curr_player_turn]
