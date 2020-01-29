@@ -1,5 +1,6 @@
 import typing
 from typing import Iterable, List
+from .cell import Cell
 
 class Board(object):
     def __init__(self, num_rows: int, num_cols: int, blank_char: str) -> bool:

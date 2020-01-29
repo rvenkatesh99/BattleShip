@@ -1,5 +1,5 @@
 import sys
-from BattleShip.src.battleshipgame import BattleshipGame
+from BattleShip.battleshipgame import BattleshipGame
 
 if __name__ == '__main__':
     board_dim = 5
