@@ -14,7 +14,8 @@ class BattleshipGame(object):
 
     # Function to read the configuration file
     def read_config_file(self) -> None:
-        with open("file.txt") as file_in:
+        config_file = None
+        with open(config_file) as file_in:
             lines = []
             for line in file_in:
                 lines.append(line)
@@ -44,18 +45,18 @@ class BattleshipGame(object):
 
     def change_turn(self) -> None:
         self._curr_player_turn = (self._curr_player_turn + 1) % 2
-        # if self.curr_player_turn == 0
-        # self.curr_Player_turn = 1
+        # if self.curr_player_turn == 0:
+            # self.curr_Player_turn = 1
         # else:
-        # self._cur_player_turn = 1
+            # self._cur_player_turn = 1
 
     def get_cur_player(self) -> "Player":
         return self.players[self._curr_player_turn]
 
-    # Create player board and scanning board per player
+    # Create player board and scanning board for each player
 
 
     # Assign ships to each player
     def get_player_ships(self, *ships) -> "Ship":
-        for ships:
+        for ships in range:
             return self.ship[self._get_ship_name]
