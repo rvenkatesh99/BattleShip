@@ -2,7 +2,7 @@ import sys
 from BattleShip.game import Game
 
 if __name__ == '__main__':
-    board_dim = 5
+    board_dim = 10
     if len(sys.argv) >= 2:
         board_dim = int(sys.argv[0])
 

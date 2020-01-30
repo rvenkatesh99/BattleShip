@@ -21,15 +21,15 @@ class Game(object):
         self.get_player_ships = None
 
     # Function to read the configuration file
-    # def read_config_file(self) -> None:
-    #     config_file = None
-    #     with open("3X4board_one_ship.txt") as file_in:
-    #         lines = []
-    #         for line in file_in:
-    #             dimen = line.split()
-    #             lines.append(dimen)
-    #     self.board = lines[:1]
-    #     return self.board
+    def read_config_file(self) -> None:
+        config_file = None
+        with open("3X4board_one_ship.txt") as file_in:
+            lines = []
+            for line in file_in:
+                dimen = line.split()
+                lines.append(dimen)
+        self.board = lines[:1]
+        return self.board
 
     def play(self) -> None:
         while not self.is_game_over():

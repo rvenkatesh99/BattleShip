@@ -23,5 +23,6 @@ class Ship(object):
             return True
         else:
             return False
+
     def all_ships_destroyed(self) -> bool:
         pass

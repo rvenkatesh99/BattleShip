@@ -7,7 +7,7 @@ from .board import Board
 class Player(object):
     def __init__(self, other_players: Iterable["Player"], blank_character: str) -> None:
         self.name = self.get_name_from_player(other_players)
-        self.piece = self.get_piece_from_player(other_players, blank_character)
+        self.ships = self.get_ships_from_player(other_players, blank_character)
 
     @staticmethod
     def get_name_from_player(other_players: Iterable["Player"]) -> str:
@@ -20,18 +20,18 @@ class Player(object):
                 print(f'{name} has already been used. Pick another name.')
 
     @staticmethod
-    def get_piece_from_player(other_players: Iterable["Player"], blank_character: str) -> str:
-        already_used_pieces = set([player.piece for player in other_players])
+    def get_ships_from_player(other_players: Iterable["Player"], blank_character: str) -> str:
+        already_used_pieces = set([player.ships for player in other_players])
         while True:
-            piece = input('Please enter the piece you want use: ').strip()
-            if len(piece) > 1:
-                print("You piece may only be a single character. Pick another piece.")
-            elif piece == blank_character:
-                print(f'You cannot pick {blank_character} for your piece. Pick another piece.')
-            elif piece in already_used_pieces:
-                print(f'{piece} has already been used. Pick another piece.')
+            ship = input('Please enter the ship you want use: ').strip()
+            if len(ship) > 1:
+                print("You ship may only be a single character. Pick another ship.")
+            elif ship == blank_character:
+                print(f'You cannot pick {blank_character} for your ship. Pick another ship.')
+            elif ship in already_used_pieces:
+                print(f'{ship} has already been used. Pick another ship.')
             else:
-                return piece
+                return ship
 
     def __str__(self) -> str:
         return self.name
