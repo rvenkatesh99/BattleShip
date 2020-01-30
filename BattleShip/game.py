@@ -9,7 +9,7 @@ T = TypeVar('T')
 
 # Class for game play
 class Game(object):
-    def __init__(self, dimension_row: int, dimension_col: int, blank_char: str = '*') -> None:
+    def __init__(self, dimension_row: int, dimension_col: int, name: str, length: int, orientation: str, blank_char: str = '*') -> None:
         self.blank_char = blank_char
         self.board = board.Board(dimension_row, dimension_col, blank_char)
 
@@ -18,9 +18,7 @@ class Game(object):
             self.players.append(player.Player(self.players, blank_char))
 
         self._curr_player_turn = 0
-        self.get_player_ships = None
-
-    # Function to read the configuration file
+        self.all_ships = ship.Ship(name, length, orientation)
 
     def play(self) -> None:
         while not self.is_game_over():

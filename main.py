@@ -1,5 +1,6 @@
 import sys
 from BattleShip.game import Game
+from BattleShip.ship import Ship
 
 if __name__ == '__main__':
     board_dim = 10
@@ -12,9 +13,9 @@ if __name__ == '__main__':
     temp_str = content[0]
     type(temp_str)
     temp_str = temp_str.strip()
-    nr, nc = temp_str.split(" ")
-    nr = int(nr)
-    nc = int(nc)
+    num_row, num_col = temp_str.split(" ")
+    num_row = int(num_row)
+    num_col = int(num_col)
 
     ship_dict = {}
     for i in range(1,len(content)):
@@ -23,9 +24,11 @@ if __name__ == '__main__':
         ship, length = temp_str.split(" ")
         ship_dict[ship] = int(length)
 
+    all_ships = Ship(ship, length)
+
 
     # if len(sys.argv) >= 2:
     #     board_dim = int(sys.argv[1])
 
-    game = Game(nr,nc)
+    game = Game(num_row,num_col)
     game.play()

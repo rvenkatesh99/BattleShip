@@ -7,7 +7,7 @@ from .board import Board
 class Player(object):
     def __init__(self, other_players: Iterable["Player"], blank_character: str) -> None:
         self.name = self.get_name_from_player(other_players)
-        self.ships = self.get_ships_from_player(other_players, blank_character)
+        self.ship_orient = self.get_ship_orientation(other_players, blank_character)
 
     @staticmethod
     def get_name_from_player(other_players: Iterable["Player"]) -> str:
@@ -20,10 +20,10 @@ class Player(object):
                 print(f'{name} has already been used. Pick another name.')
 
     @staticmethod
-    def get_ships_from_player(other_players: Iterable["Player"], blank_character: str) -> str:
+    def get_ship_orientation(other_players: Iterable["Player"], blank_character: str) -> str:
         already_used_pieces = set([player.ships for player in other_players])
         while True:
-            ship = input('Please enter the ship you want use: ').strip()
+            #ship = input('f'{get_name_from_player()}   ').strip()
             if len(ship) > 1:
                 print("You ship may only be a single character. Pick another ship.")
             elif ship == blank_character:
