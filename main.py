@@ -16,13 +16,12 @@ if __name__ == '__main__':
     nr = int(nr)
     nc = int(nc)
 
-    boat_dict = {}
+    ship_dict = {}
     for i in range(1,len(content)):
         temp_str = content[i]
         temp_str = temp_str.strip()
-        boat, length = temp_str.split(" ")
-        boat_dict[boat] = int(length)
-        print(boat_dict)
+        ship, length = temp_str.split(" ")
+        ship_dict[ship] = int(length)
 
 
     # if len(sys.argv) >= 2:
