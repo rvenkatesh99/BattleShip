@@ -21,21 +21,21 @@ class Game(object):
         self.get_player_ships = None
 
     # Function to read the configuration file
-    def read_config_file(self) -> None:
-        config_file = None
-        with open("3X4board_one_ship.txt") as file_in:
-            lines = []
-            for line in file_in:
-                dimen = line.split()
-                lines.append(dimen)
-        self.board = lines[:1]
-        return self.board
+    # def read_config_file(self) -> None:
+    #     config_file = None
+    #     with open("3X4board_one_ship.txt") as file_in:
+    #         lines = []
+    #         for line in file_in:
+    #             dimen = line.split()
+    #             lines.append(dimen)
+    #     self.board = lines[:1]
+    #     return self.board
 
     def play(self) -> None:
         while not self.is_game_over():
             self.display_game_state()
             curr_player = self.get_curr_player()
-            curr_player.take_turn()
+            curr_player.take_turn(self.board)
             self.change_turn()
         self.display_winner()
 
@@ -59,7 +59,7 @@ class Game(object):
         # else:
         # self._curr_player_turn = 1
 
-    def get_cur_player(self) -> "Player":
+    def get_curr_player(self) -> "Player":
         return self.players[self._curr_player_turn]
 
     # Create player board and scanning board for each player

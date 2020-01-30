@@ -46,4 +46,4 @@ class Player(object):
 
     def get_move(self) -> "Move":
         str_move = input(f'{self} enter where you want to play in the form row, col: ')
-        return Move.from_str(self, str_move)
+        return Move.from_string(self, str_move)
