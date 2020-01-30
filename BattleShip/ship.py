@@ -1,3 +1,5 @@
+from .board import Board
+
 class Ship(object):
     def __init__(self, name, length, orientation) -> None:
         self.name = None

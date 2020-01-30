@@ -1,4 +1,4 @@
-from .board import Board
+from . import board
 
 class Cell(object):
     def __init__(self, symbol) -> None:

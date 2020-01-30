@@ -41,6 +41,3 @@ class Board(object):
 
     def __getitem__(self, index: int) -> List[str]:
         return self.contents[index]
-
-    def place_ship(self, orientation: list) -> list:
-        pass
