@@ -8,7 +8,6 @@ if __name__ == '__main__':
 
     with open(sys.argv[1]) as infile:
         content = infile.readlines()
-        print(content)
 
     temp_str = content[0]
     type(temp_str)
@@ -26,8 +25,8 @@ if __name__ == '__main__':
         print(boat_dict)
 
 
-    if len(sys.argv) >= 2:
-        board_dim = int(sys.argv[1])
+    # if len(sys.argv) >= 2:
+    #     board_dim = int(sys.argv[1])
 
-    game = Game(board_dim)
+    game = Game(nr,nc)
     game.play()

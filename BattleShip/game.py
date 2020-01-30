@@ -9,9 +9,9 @@ T = TypeVar('T')
 
 # Class for game play
 class Game(object):
-    def __init__(self, dimensions: int, blank_char: str = '*') -> None:
+    def __init__(self, dimension_row: int, dimension_col: int, blank_char: str = '*') -> None:
         self.blank_char = blank_char
-        self.board = board.Board(dimensions, dimensions, blank_char)
+        self.board = board.Board(dimension_row, dimension_col, blank_char)
 
         self.players = []
         for player_num in range(2):
@@ -21,15 +21,6 @@ class Game(object):
         self.get_player_ships = None
 
     # Function to read the configuration file
-    def read_config_file(self) -> None:
-        config_file = None
-        with open("3X4board_one_ship.txt") as file_in:
-            lines = []
-            for line in file_in:
-                dimen = line.split()
-                lines.append(dimen)
-        self.board = lines[:1]
-        return self.board
 
     def play(self) -> None:
         while not self.is_game_over():
