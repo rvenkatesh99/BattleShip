@@ -1,7 +1,7 @@
 from .board import Board
 
 class Ship(object):
-    def __init__(self, name, length, orientation) -> None:
+    def __init__(self, name, length) -> None:
         self.name = None
         self.char = name[0]
         self.length = None # set by parameters?

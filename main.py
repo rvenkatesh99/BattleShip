@@ -24,11 +24,9 @@ if __name__ == '__main__':
         ship, length = temp_str.split(" ")
         ship_dict[ship] = int(length)
 
-    all_ships = Ship(ship, length)
-
 
     # if len(sys.argv) >= 2:
     #     board_dim = int(sys.argv[1])
 
-    game = Game(num_row,num_col)
+    game = Game(num_row,num_col, ship, length)
     game.play()

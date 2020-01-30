@@ -9,7 +9,7 @@ T = TypeVar('T')
 
 # Class for game play
 class Game(object):
-    def __init__(self, dimension_row: int, dimension_col: int, name: str, length: int, orientation: str, blank_char: str = '*') -> None:
+    def __init__(self, dimension_row: int, dimension_col: int, name: str, length: int, blank_char: str = '*') -> None:
         self.blank_char = blank_char
         self.board = board.Board(dimension_row, dimension_col, blank_char)
 
@@ -18,7 +18,7 @@ class Game(object):
             self.players.append(player.Player(self.players, blank_char))
 
         self._curr_player_turn = 0
-        self.all_ships = ship.Ship(name, length, orientation)
+        self.all_ships = ship.Ship(name, length)
 
     def play(self) -> None:
         while not self.is_game_over():
@@ -52,8 +52,3 @@ class Game(object):
         return self.players[self._curr_player_turn]
 
     # Create player board and scanning board for each player
-
-    # Assign ships to each player
-    def get_player_ships(self, *ships) -> "Ship":
-        for ships in range:
-            return self.ship[self._get_ship_name]
