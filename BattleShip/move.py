@@ -1,6 +1,6 @@
 from . import player
 from . import board
-
+from . import ship
 
 class MoveError(Exception):
     pass

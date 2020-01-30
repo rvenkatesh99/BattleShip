@@ -1,4 +1,4 @@
-from .ship import Ship
+from . import ship
 from typing import Iterable
 from .move import Move, MoveError
 from .board import Board
@@ -23,7 +23,8 @@ class Player(object):
     def get_ship_orientation(self, other_players: Iterable["Player"], blank_character: str) -> str:
         already_used_ships = set([player.ships for player in other_players])
         while True:
-            ship_h_or_v = input(f'{self.name} Enter orientation of   ').strip()
+            ship_h_or_v = input(
+                f'{self.name} Enter horizontal or vertical for the placement of {ship.Ship.name} which is {ship.Ship.length} long').strip()
             if len(ship) > 1:
                 print("You ship may only be a single character. Pick another ship.")
             elif ship == blank_character:
@@ -45,5 +46,5 @@ class Player(object):
                 print(MoveError)
 
     def get_move(self) -> "Move":
-        str_move = input(f'{self} enter where you want to play in the form row, col: ')
+        str_move = input(f'{self} enter the location you want to fire at in the form row, column: ')
         return Move.from_string(self, str_move)
