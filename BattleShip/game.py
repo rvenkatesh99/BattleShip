@@ -1,7 +1,8 @@
 from typing import Iterable, TypeVar
-from .board import Board
-from .player import Player
-from .ship import Ship
+
+from . import board
+from . import player
+from . import ship
 
 T = TypeVar('T')
 
@@ -10,11 +11,11 @@ T = TypeVar('T')
 class Game(object):
     def __init__(self, dimensions: int, blank_char: str = '*') -> None:
         self.blank_char = blank_char
-        self.board = Board(dimensions, dimensions, blank_char)
+        self.board = board.Board(dimensions, dimensions, blank_char)
 
         self.players = []
         for player_num in range(2):
-            self.players.append(Player(self.players, blank_char))
+            self.players.append(player.Player(self.players, blank_char))
 
         self._curr_player_turn = 0
         self.get_player_ships = None
@@ -22,12 +23,12 @@ class Game(object):
     # Function to read the configuration file
     def read_config_file(self) -> None:
         config_file = None
-        with open(config_file) as file_in:
+        with open("3X4board_one_ship.txt") as file_in:
             lines = []
             for line in file_in:
-                line.split()
-                lines.append(line)
-        self.board = line[0][1]
+                dimen = line.split()
+                lines.append(dimen)
+        self.board = lines[:1]
         return self.board
 
     def play(self) -> None:

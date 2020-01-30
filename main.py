@@ -6,7 +6,7 @@ if __name__ == '__main__':
     for position, value in enumerate(sys.argv):
         print( f'{position}: {value}')
     if len(sys.argv) >= 2:
-        board_dim = int(sys.argv[1])
+        board_dim = int(sys.argv[0])
 
     game = Game(board_dim)
     game.play()

@@ -13,7 +13,7 @@ class Move(object):
         self.col = col
 
     @classmethod
-    def from_str(cls, maker: "Player", str_move: str) -> "Move":
+    def from_string(cls, maker: "Player", str_move: str) -> "Move":
         '''
         :param maker:
         :param str_move: should be in format row, col
