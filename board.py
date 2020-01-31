@@ -1,6 +1,4 @@
-import typing
 from typing import Iterable, List
-from .cell import Cell
 
 
 class Board(object):

@@ -1,7 +1,6 @@
 import sys
-from BattleShip.game import Game
-from BattleShip.ship import Ship
-from BattleShip.player import Player
+from game import Game
+from ship import Ship
 
 if __name__ == '__main__':
     with open(sys.argv[1]) as infile:
@@ -25,5 +24,8 @@ if __name__ == '__main__':
     # if len(sys.argv) >= 2:
     #     board_dim = int(sys.argv[1])
 
+    print(Game(num_row, num_col))
+
     game = Game(num_row,num_col)
+
     game.play()

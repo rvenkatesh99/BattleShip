@@ -1,6 +1,4 @@
-from . import player
-from . import board
-from . import ship
+import ship
 
 
 class MoveError(Exception):
@@ -8,7 +6,7 @@ class MoveError(Exception):
 
 
 class Move(object):
-    def __init__(self, maker: "Player", row: int, col: int) -> None:
+    def __init__(self, maker: "Player", ship: "Ship", row: int, col: int) -> None:
         self.maker = maker
         self.row = row
         self.col = col
@@ -46,3 +44,27 @@ class Move(object):
 
         else:
             the_board[self.row][self.col] = self.maker.piece
+
+    def place_ship_horiz(self, player_board: "Board"):
+        if not player_board.is_in_bounds(self.row, self.col):
+            raise MoveError(f'{self.row},{self.col} is not in bounds')
+
+        elif player_board[self.row, self.col] != player_board.blank_char:
+            raise MoveError(
+                f' You cannot place your ship at {self.row},{self.col} because you already placed a ship there')
+
+        else:
+            for i in range(ship.Ship.length):
+                player_board[self.row + i][self.col] = self.ship.char
+
+   def place_ship_vert(self, player_board: "Board"):
+        if not player_board.is_in_bounds(self.row, self.col):
+            raise MoveError(f'{self.row},{self.col} is not in bounds')
+
+        elif player_board[self.row, self.col] != player_board.blank_char:
+            raise MoveError(
+                f' You cannot place your ship at {self.row},{self.col} because you already placed a ship there')
+
+        else:
+            for i in range(ship.Ship.length):
+                player_board[self.row][self.col + i] = self.ship.char

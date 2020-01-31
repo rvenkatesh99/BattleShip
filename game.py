@@ -1,8 +1,7 @@
-from typing import Iterable, TypeVar
+from typing import TypeVar
 
-from . import board
-from . import player
-from . import ship
+import board
+import player
 
 T = TypeVar('T')
 
@@ -23,6 +22,7 @@ class Game(object):
         while not self.is_game_over():
             self.display_game_state()
             curr_player = self.get_curr_player()
+            curr_player.place_ships(self.board)
             curr_player.take_turn(self.board)
             self.change_turn()
         self.display_winner()
