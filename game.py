@@ -17,7 +17,7 @@ class Game(object):
 
         self.players = []
         for player_num in range(2):
-            self.players.append(player.Player(self.players, self.board, self.ship_list, blank_char))
+            self.players.append(player.Player(self.players, self.board, self.ship_list))
 
         self._curr_player_turn = 0
 
@@ -67,7 +67,5 @@ class Game(object):
                 print(MoveError)
 
     def update_board(self) -> None:
-        while !is_str_hit_valid(str_hit):   #need to check other players board
-            str_hit = input(f'{self} enter the location you want to fire at in the form row, column: ')
-        self.players[self._curr_player_turn % 1].player_board.add_hit(str_hit) #add hit will be a board function
+        self.players[self._curr_player_turn % 1].player_board.do_hit(self.player_board) #add hit will be a board function
 

@@ -24,8 +24,6 @@ if __name__ == '__main__':
     # if len(sys.argv) >= 2:
     #     board_dim = int(sys.argv[1])
 
-    print(Game(num_row, num_col))
-
-    game = Game(num_row,num_col)
+    game = Game(num_row, num_col, ship_list)
 
     game.play()
