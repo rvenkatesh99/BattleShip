@@ -2,6 +2,7 @@ from . import player
 from . import board
 from . import ship
 
+
 class MoveError(Exception):
     pass
 
@@ -14,11 +15,11 @@ class Move(object):
 
     @classmethod
     def from_string(cls, maker: "Player", str_move: str) -> "Move":
-        '''
+        """
         :param maker:
         :param str_move: should be in format row, col
         :return:
-        '''
+        """
         try:
             row, col = str_move.split(',')
         except ValueError:

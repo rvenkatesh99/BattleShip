@@ -1,12 +1,9 @@
 import sys
 from BattleShip.game import Game
 from BattleShip.ship import Ship
+from BattleShip.player import Player
 
 if __name__ == '__main__':
-    board_dim = 10
-    for i in range(len(sys.argv)):
-        print(i, sys.argv[i])
-
     with open(sys.argv[1]) as infile:
         content = infile.readlines()
 
@@ -17,16 +14,16 @@ if __name__ == '__main__':
     num_row = int(num_row)
     num_col = int(num_col)
 
-    ship_dict = {}
-    for i in range(1,len(content)):
+    ship_list = []
+    for i in range(1, len(content)):
         temp_str = content[i]
         temp_str = temp_str.strip()
-        ship, length = temp_str.split(" ")
-        ship_dict[ship] = int(length)
-
+        ship_name, length = temp_str.split(" ")
+        new_ship = Ship(ship_name, length)
+        ship_list.append(new_ship)
 
     # if len(sys.argv) >= 2:
     #     board_dim = int(sys.argv[1])
 
-    game = Game(num_row,num_col, ship, length)
+    game = Game(num_row,num_col)
     game.play()

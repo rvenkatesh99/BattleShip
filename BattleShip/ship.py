@@ -1,18 +1,12 @@
 from .board import Board
 
+
 class Ship(object):
     def __init__(self, name, length) -> None:
-        self.name = None
+        self.name = name
         self.char = name[0]
-        self.length = None # set by parameters?
-        self.health = self.length
-
-    def get_ship_name(self) -> str:
-        ship_name = input()
-        return ship_name
-
-    def get_ship_initial(self) -> str:
-        return self.char
+        self.length = length
+        self.health = length
 
     def if_ship_hit(self) -> int:
         self.health = self.health - 1
@@ -23,6 +17,3 @@ class Ship(object):
             return True
         else:
             return False
-
-    def all_ships_destroyed(self) -> bool:
-        pass
