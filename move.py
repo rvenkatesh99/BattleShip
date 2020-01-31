@@ -6,7 +6,7 @@ class MoveError(Exception):
 
 
 class Move(object):
-    def __init__(self, maker: "Player", ship: "Ship", row: int, col: int) -> None:
+    def __init__(self, maker: "Player", row: int, col: int) -> None:
         self.maker = maker
         self.row = row
         self.col = col
@@ -57,7 +57,7 @@ class Move(object):
             for i in range(ship.Ship.length):
                 player_board[self.row + i][self.col] = self.ship.char
 
-   def place_ship_vert(self, player_board: "Board"):
+    def place_ship_vert(self, player_board: "Board"):
         if not player_board.is_in_bounds(self.row, self.col):
             raise MoveError(f'{self.row},{self.col} is not in bounds')
 

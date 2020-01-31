@@ -8,10 +8,9 @@ from board import Board
 # ship list within the player class
 
 class Player(object):
-    def __init__(self, other_players: Iterable["Player"], ships: Iterable["Ship"], blank_character: str = "*") -> None:
+    def __init__(self, other_players: Iterable["Player"], player_board: "Board", blank_character: str = "*") -> None:
         self.name = self.get_name_from_player(other_players)
-        self.ships = ship.Ship()
-        self.ship_orient = self.get_ship_orientation(self)
+        self.player_board = player_board
 
     @staticmethod
     def get_name_from_player(other_players: Iterable["Player"]) -> str:
