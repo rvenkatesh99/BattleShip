@@ -2,9 +2,13 @@ from typing import Iterable, List
 
 
 class Board(object):
+    """
+    class defines the board game object, creates a visual board so players can see game action 
+    """
     def __init__(self, num_rows: int, num_cols: int, blank_char: str) -> bool:
         self.contents = [[blank_char for col in range(num_cols)] for row in
                          range(num_rows)]  # will yield copies rather than references
+        
         self.blank_char = blank_char
 
     @property
